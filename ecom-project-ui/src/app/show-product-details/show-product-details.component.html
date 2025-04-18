@@ -1,0 +1,71 @@
+<div class="container mt-5 p-3">
+<div *ngIf="showTable">
+
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+    <!-- Product Id Column -->
+    <ng-container matColumnDef="productId" style="padding:5px;">
+      <th mat-header-cell *matHeaderCellDef>Product Id</th>
+      <td mat-cell *matCellDef="let element"> {{element.productId}} </td>
+    </ng-container>
+
+    <!-- Product Name Column -->
+    <ng-container matColumnDef="productName" style="padding:5px;">
+      <th mat-header-cell *matHeaderCellDef>Product Name</th>
+      <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+    </ng-container>
+
+    <!-- Product Description Column -->
+    <ng-container matColumnDef="productDescription" style="padding:5px;">
+      <th mat-header-cell *matHeaderCellDef>Product Description</th>
+      <td mat-cell *matCellDef="let element"> {{element.productDescription}} </td>
+    </ng-container>
+
+    <!-- Product Discounted Price Column -->
+    <ng-container matColumnDef="productDiscountedPrice" style="padding:5px;">
+      <th mat-header-cell *matHeaderCellDef>Discounted Price</th>
+      <td mat-cell *matCellDef="let element"> {{element.productDiscountedPrice}} </td>
+    </ng-container>
+
+    <!-- Product Actual Price Column -->
+    <ng-container matColumnDef="productActualPrice" style="padding:5px;">
+      <th mat-header-cell *matHeaderCellDef>Actual Price</th>
+      <td mat-cell *matCellDef="let element"> {{element.productActualPrice}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="Images" style="padding:5px;">
+      <th mat-header-cell *matHeaderCellDef>Images</th>
+      <td mat-cell *matCellDef="let element">
+         <button mat-icon-button color="warn" (click)="showImages(element)">
+           <mat-icon>images</mat-icon>
+         </button> 
+      </td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="Actions" style="padding:5px;">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let element"> 
+        <!-- <button mat-icon-button color="warn" (click)="showImages(element)">
+          <mat-icon>images</mat-icon>
+        </button>   -->
+        <button mat-icon-button color="primary" (click)="editProductDetails(element.productId)">
+          <mat-icon>edit</mat-icon>
+        </button> 
+        <button mat-icon-button color="warn" (click)="deleteProduct(element.productId)">
+          <mat-icon>delete</mat-icon>
+        </button>  
+      </td>
+    </ng-container>
+
+    <!-- Table Rows -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
+  <div class="text-center p-5" *ngIf="showLoadButton">
+    <button type="button" mat-raised-button color="primary" (click)="loadMoreProduct()">Load More</button>
+  </div>
+</div>

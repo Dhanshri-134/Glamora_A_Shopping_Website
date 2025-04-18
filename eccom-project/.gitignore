@@ -1,0 +1,16 @@
+/bin/
+/.idea/
+/com/
+/target/
+/.settings/
+/.classpath
+.project
+jwt.iml
+mvnw
+mvnw.cmd
+nbactions.xml
+New_configuration.launch
+pom.xml
+src/test/
+src/main/resources/application.properties
+

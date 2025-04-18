@@ -1,0 +1,29 @@
+@use '@angular/material' as mat;
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    color: darkgray; 
+    border-width: 0.5px; 
+}
+
+.mat-form-field-label{
+    visibility: visible;
+    color: darkgray;
+}
+
+$my-primary: mat.define-palette(mat.$purple-palette, 500, 300, 700);
+$my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$my-warn: mat.define-palette(mat.$red-palette);
+
+$my-theme: mat.define-light-theme((
+  color: (
+    primary: $my-primary,
+    accent: $my-accent,
+    warn: $my-warn,
+  )
+));
+
+@include mat.all-component-themes($my-theme);

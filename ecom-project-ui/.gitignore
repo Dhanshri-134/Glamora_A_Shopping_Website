@@ -1,0 +1,15 @@
+/node_modules/
+/.angular/
+/e2e/
+angular.json
+karma.conf.js
+package-lock.json
+package.json
+README.md
+tsconfig.json
+tsconfig.app.json
+tsconfig.spec.json
+tslint.json
+src/app/_auth/
+src/app/assets/
+src/app/environments/

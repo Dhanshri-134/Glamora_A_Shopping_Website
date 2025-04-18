@@ -1,0 +1,67 @@
+<div class="container mt-5">
+    <div class="card p-4">
+      <div class="row">
+        <!-- Left side: Form -->
+        <div class="col-md-6">
+          <form #orderForm="ngForm" (ngSubmit)="placeOrder(orderForm)">
+            <mat-form-field appearance="outline" class="w-100 mb-3">
+              <mat-label>Full name</mat-label>
+              <input matInput name="fullName" [(ngModel)]="orderDetails.fullName" required>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="w-100 mb-3">
+              <mat-label>Full address</mat-label>
+              <input matInput name="fullAddress" [(ngModel)]="orderDetails.fullAddress" required>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="w-100 mb-3">
+              <mat-label>Contact number</mat-label>
+              <input matInput name="contactNumber" [(ngModel)]="orderDetails.contactNumber" required>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="w-100 mb-3">
+              <mat-label>Alternate contact number</mat-label>
+              <input matInput name="alternateContactNumber" [(ngModel)]="orderDetails.alternateContactNumber" required>
+            </mat-form-field>
+  
+            <div class="text-end">
+              <button mat-raised-button color="warn" type="submit">Place Order</button>
+            </div>
+          </form>
+        </div>
+  
+        <!-- Right side: Table -->
+        <div class="col-md-6">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Qty</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of productDetails">
+                <td>{{ product.productName }}</td>
+                <td>{{ product.productDiscountedPrice }}</td>
+                <td>
+                  <select class="form-select"
+                          [ngModel]="1"
+                          (change)="onQuantityChanged($event.target.value, product.productId)">
+                    <option *ngFor="let qty of [1, 2, 3, 4, 5]" [value]="qty">{{ qty }}</option>
+                  </select>
+                </td>
+                <td>{{ productTotalMap[product.productId] }}</td>
+              </tr>
+              <tr>
+                <td colspan="3" class="text-end"><strong>Grand Total:</strong></td>
+                <td><strong>{{ grandTotal }}</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  

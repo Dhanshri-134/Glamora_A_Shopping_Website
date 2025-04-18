@@ -1,0 +1,16 @@
+table {
+  width: 100%;
+  height: auto;
+  border: 1px solid black;  /* Add border for visibility */
+  margin-top: 20px;
+}
+
+mat-header-row, mat-row {
+  height: 50px;
+}
+.mat-col-productDescription{
+  width: 35% !important;
+}
+table,th,td{
+  padding: 10px;
+}
